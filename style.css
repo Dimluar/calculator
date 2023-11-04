@@ -9,3 +9,75 @@ html {
   margin: 0;
   padding: 0;
 }
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100vh;
+}
+
+.calculator {
+  background-color: #83c5be;
+  height: 480px;
+  width: 280px;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+}
+
+.text-field {
+  width: 252px;
+  max-width: 252px;
+  padding: 5px 20px;
+  border-radius: 5px;
+
+  background-color: #ffddd2;
+  color: #e29578;
+  text-shadow: 0 0 1px black;
+  font-size: 40px;
+  text-align: right;
+}
+
+.row {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.btn {
+  flex: 1;
+  font-size: 30px;
+  padding: 5px 10px;
+  min-width: 48px;
+  min-height: 52px;
+
+  background-color: #ffddd2;
+  color: #e29578;
+  border: none;
+  border-radius: 10px;
+  text-shadow: 0 0 1px black;
+  font-family: inherit;
+}
+
+.btn:hover {
+  background-color: #dac0b7;
+}
+
+.top-btn {
+  background-color: #ff6961;
+  color: wheat;
+}
+.top-btn:hover {
+  background-color: #d95851;
+}
