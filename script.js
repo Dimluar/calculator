@@ -79,6 +79,12 @@ function displaySymbol(btn, index) {
   const symbols = ["*", "/", "-", "+"];
   if (symbols.some((item) => textContentValue.includes(item))) {
     switch (index) {
+      case 4:
+        let [a, operator, b] = textContentValue.split(" ");
+        textContentValue = operate(a, b, operator);
+        textField.textContent = textContentValue;
+        return textContentValue;
+        break;
       default:
         return textContentValues;
         break;
