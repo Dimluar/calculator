@@ -70,6 +70,43 @@ document.addEventListener("click", (e) => {
   }
 });
 
+document.addEventListener("keydown", (e) => {
+  console.log(e.key);
+
+  if (+e.key >= 0 && +e.key <= 9) {
+    textContentValue = displayNumber(+e.key);
+  }
+
+  if (e.key === "Backspace" && e.ctrlKey) {
+    textField.textContent = "0";
+    textContentValue = "";
+  }
+
+  switch (e.key) {
+    case "/":
+      textContentValue = displaySymbol(0);
+      break;
+    case "*":
+      textContentValue = displaySymbol(1);
+      break;
+    case "-":
+      textContentValue = displaySymbol(2);
+      break;
+    case "+":
+      textContentValue = displaySymbol(3);
+      break;
+    case "Enter":
+      textContentValue = displaySymbol(4);
+      break;
+    case "Backspace":
+      textContentValue = delInput();
+      break;
+    case ".":
+      textContentValue = displayDot();
+      break;
+  }
+});
+
 function displayNumber(index) {
   if (textField.textContent === "Infinity" || textField.textContent === "NaN") {
     textField.textContent = "0";

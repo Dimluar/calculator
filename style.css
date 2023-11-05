@@ -16,6 +16,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 25px;
 
   min-height: 100vh;
 }
@@ -82,4 +83,25 @@ body {
 }
 .top-btn:hover {
   background-color: #d95851;
+}
+
+.keys h3 {
+  margin-bottom: 5px;
+}
+
+.keys p {
+  margin-bottom: 3px;
+}
+
+.underline {
+  border-bottom: 2px solid #83c5be;
+}
+
+.keys {
+  color: #e29578;
+  text-shadow: 0 0 1px #000;
+  background-color: #ffddd2;
+  padding: 9px;
+  border-radius: 8px;
+  border: 4px solid #83c5be;
 }
