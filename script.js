@@ -81,12 +81,12 @@ function displaySymbol(btn, index) {
     switch (index) {
       case 4:
         let [a, operator, b] = textContentValue.split(" ");
-        textContentValue = operate(a, b, operator);
+        textContentValue = `${operate(a, b, operator)}`;
         textField.textContent = textContentValue;
         return textContentValue;
         break;
       default:
-        return textContentValues;
+        return textContentValue;
         break;
     }
   }
