@@ -62,15 +62,7 @@ document.addEventListener("click", (e) => {
       textContentValue = "";
       break;
     case delBtn:
-      let toErase = textField.textContent;
-      if (toErase.length > 1) {
-        if (toErase.slice(-1) === " ") {
-          textContentValue = toErase.slice(0, toErase.length - 3);
-        } else {
-          textContentValue = toErase.slice(0, toErase.length - 1);
-        }
-        textField.textContent = textContentValue;
-      }
+      textContentValue = delInput();
       break;
   }
 });
@@ -127,7 +119,6 @@ function displaySymbol(btn, index) {
       return displayNumber(btn, " + ");
     case 4:
       return textContentValue;
-      break;
   }
 }
 
@@ -135,5 +126,18 @@ function displayOperate(symbol) {
   let [a, operator, b] = textContentValue.split(" ");
   textContentValue = `${operate(a, b, operator)}${symbol}`;
   textField.textContent = textContentValue;
+  return textContentValue;
+}
+
+function delInput() {
+  let toErase = textField.textContent;
+  if (toErase.length > 1) {
+    if (toErase.slice(-1) === " ") {
+      textContentValue = toErase.slice(0, toErase.length - 3);
+    } else {
+      textContentValue = toErase.slice(0, toErase.length - 1);
+    }
+    textField.textContent = textContentValue;
+  }
   return textContentValue;
 }
