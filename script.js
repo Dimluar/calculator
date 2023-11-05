@@ -77,6 +77,8 @@ function displayNumber(btn, index) {
     textContentValue += `${index}`;
     textField.textContent = textContentValue;
     return textContentValue;
+  } else {
+    return textContentValue;
   }
 }
 
