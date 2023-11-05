@@ -143,6 +143,9 @@ function delInput() {
       textContentValue = toErase.slice(0, toErase.length - 1);
     }
     textField.textContent = textContentValue;
+  } else {
+    textContentValue = "";
+    textField.textContent = "0";
   }
   return textContentValue;
 }
