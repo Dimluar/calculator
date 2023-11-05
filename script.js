@@ -60,6 +60,18 @@ document.addEventListener("click", (e) => {
     case acBtn:
       textField.textContent = "0";
       textContentValue = "";
+      break;
+    case delBtn:
+      let toErase = textField.textContent;
+      if (toErase.length > 1) {
+        if (toErase.slice(-1) === " ") {
+          textContentValue = toErase.slice(0, toErase.length - 3);
+        } else {
+          textContentValue = toErase.slice(0, toErase.length - 1);
+        }
+        textField.textContent = textContentValue;
+      }
+      break;
   }
 });
 
