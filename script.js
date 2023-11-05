@@ -47,21 +47,21 @@ let textContentValue = "";
 textField.textContent = "0";
 
 document.addEventListener("click", (e) => {
+  numberBtnList.forEach((btn, index) => {
+    if (e.target === btn) {
+      if (
+        (index !== 0 || textField.textContent !== "0") &&
+        textField.textContent.length < 10
+      ) {
+        textContentValue += `${index}`;
+        textField.textContent = textContentValue;
+      }
+    }
+  });
+
   switch (e.target) {
     case acBtn:
       textField.textContent = "0";
       textContentValue = "";
   }
-});
-
-numberBtnList.forEach((btn, index) => {
-  btn.addEventListener("click", () => {
-    if (
-      (index !== 0 || textField.textContent !== "0") &&
-      textField.textContent.length < 10
-    ) {
-      textContentValue += `${index}`;
-      textField.textContent = textContentValue;
-    }
-  });
 });
