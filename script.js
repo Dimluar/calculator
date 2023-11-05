@@ -15,16 +15,12 @@ function operate(a, b, operator) {
   switch (operator) {
     case "+":
       return add(a, b);
-      break;
     case "-":
       return subtract(a, b);
-      break;
     case "*":
       return multiply(a, b);
-      break;
     case "/":
       return divide(a, b);
-      break;
   }
 }
 
@@ -133,16 +129,12 @@ function displaySymbol(index) {
       switch (index) {
         case 0:
           return displayOperate(" / ");
-          break;
         case 1:
           return displayOperate(" * ");
-          break;
         case 2:
           return displayOperate(" - ");
-          break;
         case 3:
           return displayOperate(" + ");
-          break;
         case 4:
           return displayOperate("");
       }
