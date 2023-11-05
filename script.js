@@ -127,7 +127,9 @@ function displaySymbol(btn, index) {
 
 function displayOperate(symbol) {
   let [a, operator, b] = textContentValue.split(" ");
-  textContentValue = `${operate(a, b, operator)}${symbol}`;
+  textContentValue = `${
+    Math.round(operate(a, b, operator) * 10 ** 5) / 10 ** 5
+  }${symbol}`;
   textField.textContent = textContentValue;
   return textContentValue;
 }
@@ -156,7 +158,7 @@ function displayDot() {
       }
     }
   } else {
-    const [$1, $2, b] = textContentValue.split(" ");
+    const [_1, _2, b] = textContentValue.split(" ");
     if (!b.includes(".")) textContentValue += ".";
   }
   textField.textContent = textContentValue;
