@@ -49,13 +49,7 @@ textField.textContent = "0";
 document.addEventListener("click", (e) => {
   numberBtnList.forEach((btn, index) => {
     if (e.target === btn) {
-      if (
-        (index !== 0 || textField.textContent !== "0") &&
-        textField.textContent.length < 10
-      ) {
-        textContentValue += `${index}`;
-        textField.textContent = textContentValue;
-      }
+      textContentValue = displayNumber(btn, index);
     }
   });
 
@@ -65,3 +59,14 @@ document.addEventListener("click", (e) => {
       textContentValue = "";
   }
 });
+
+function displayNumber(btn, index) {
+  if (
+    (index !== 0 || textField.textContent !== "0") &&
+    textField.textContent.length < 10
+  ) {
+    textContentValue += `${index}`;
+    textField.textContent = textContentValue;
+    return textContentValue;
+  }
+}
