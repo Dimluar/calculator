@@ -64,6 +64,11 @@ document.addEventListener("click", (e) => {
 });
 
 function displayNumber(btn, index) {
+  if (textField.textContent === "Infinity" || textField.textContent === "NaN") {
+    textField.textContent = "0";
+    textContentValue = "";
+  }
+
   if (typeof index === "string" && textField.textContent === "0") {
     textContentValue = `0${index}`;
     textField.textContent = textContentValue;
