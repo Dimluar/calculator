@@ -31,15 +31,12 @@ function operate(a, b, operator) {
 const delBtn = document.querySelector("#del");
 const acBtn = document.querySelector("#ac");
 const dotBtn = document.querySelector("#dot");
-const equalBtn = document.querySelector("#equal");
-const plusBtn = document.querySelector("#plus");
-const minusBtn = document.querySelector("#minus");
-const multiplyBtn = document.querySelector("#multiply");
-const divisionBtn = document.querySelector("#division");
 
 const numberBtnList = Array.from(document.querySelectorAll(".number-btn"));
 numberBtnList.sort((a, b) => a.textContent - b.textContent);
-console.log(numberBtnList);
+
+const symbolBtnList = Array.from(document.querySelectorAll(".symbol-btn"));
+[symbolBtnList[3], symbolBtnList[4]] = [symbolBtnList[4], symbolBtnList[3]];
 
 const textField = document.querySelector(".text-field");
 let textContentValue = "";
@@ -53,6 +50,12 @@ document.addEventListener("click", (e) => {
     }
   });
 
+  symbolBtnList.forEach((btn, index) => {
+    if (e.target === btn) {
+      textContentValue = displaySymbol(btn, index);
+    }
+  });
+
   switch (e.target) {
     case acBtn:
       textField.textContent = "0";
@@ -61,12 +64,38 @@ document.addEventListener("click", (e) => {
 });
 
 function displayNumber(btn, index) {
-  if (
-    (index !== 0 || textField.textContent !== "0") &&
-    textField.textContent.length < 10
-  ) {
+  if (typeof index === "string" && textField.textContent === "0") {
+    textContentValue = `0${index}`;
+    textField.textContent = textContentValue;
+    return textContentValue;
+  } else if (index !== 0 || textField.textContent !== "0") {
     textContentValue += `${index}`;
     textField.textContent = textContentValue;
     return textContentValue;
+  }
+}
+
+function displaySymbol(btn, index) {
+  const symbols = ["*", "/", "-", "+"];
+  if (symbols.some((item) => textContentValue.includes(item))) {
+    switch (index) {
+      default:
+        return textContentValues;
+        break;
+    }
+  }
+
+  switch (index) {
+    case 0:
+      return displayNumber(btn, " / ");
+    case 1:
+      return displayNumber(btn, " * ");
+    case 2:
+      return displayNumber(btn, " - ");
+    case 3:
+      return displayNumber(btn, " + ");
+    case 4:
+      return textContentValue;
+      break;
   }
 }
