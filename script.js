@@ -64,6 +64,9 @@ document.addEventListener("click", (e) => {
     case delBtn:
       textContentValue = delInput();
       break;
+    case dotBtn:
+      textContentValue = displayDot();
+      break;
   }
 });
 
@@ -139,5 +142,23 @@ function delInput() {
     }
     textField.textContent = textContentValue;
   }
+  return textContentValue;
+}
+
+function displayDot() {
+  const symbols = ["*", "/", "-", "+"];
+  if (!symbols.some((item) => textContentValue.includes(item))) {
+    if (!textContentValue.includes(".")) {
+      if (textField.textContent === "0") {
+        textContentValue = "0.";
+      } else {
+        textContentValue += ".";
+      }
+    }
+  } else {
+    const [$1, $2, b] = textContentValue.split(" ");
+    if (!b.includes(".")) textContentValue += ".";
+  }
+  textField.textContent = textContentValue;
   return textContentValue;
 }
