@@ -46,13 +46,13 @@ textField.textContent = "0";
 document.addEventListener("click", (e) => {
   numberBtnList.forEach((btn, index) => {
     if (e.target === btn) {
-      textContentValue = displayNumber(btn, index);
+      textContentValue = displayNumber(index);
     }
   });
 
   symbolBtnList.forEach((btn, index) => {
     if (e.target === btn) {
-      textContentValue = displaySymbol(btn, index);
+      textContentValue = displaySymbol(index);
     }
   });
 
@@ -70,7 +70,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-function displayNumber(btn, index) {
+function displayNumber(index) {
   if (textField.textContent === "Infinity" || textField.textContent === "NaN") {
     textField.textContent = "0";
     textContentValue = "";
@@ -89,39 +89,43 @@ function displayNumber(btn, index) {
   }
 }
 
-function displaySymbol(btn, index) {
+function displaySymbol(index) {
   const symbols = ["*", "/", "-", "+"];
   if (symbols.some((item) => textContentValue.includes(item))) {
+    if (textContentValue[textContentValue.length - 1] !== " ") {
+      switch (index) {
+        case 0:
+          return displayOperate(" / ");
+          break;
+        case 1:
+          return displayOperate(" * ");
+          break;
+        case 2:
+          return displayOperate(" - ");
+          break;
+        case 3:
+          return displayOperate(" + ");
+          break;
+        case 4:
+          return displayOperate("");
+      }
+    } else {
+      return textContentValue;
+    }
+  } else {
     switch (index) {
       case 0:
-        return displayOperate(" / ");
-        break;
+        return displayNumber(" / ");
       case 1:
-        return displayOperate(" * ");
-        break;
+        return displayNumber(" * ");
       case 2:
-        return displayOperate(" - ");
-        break;
+        return displayNumber(" - ");
       case 3:
-        return displayOperate(" + ");
-        break;
+        return displayNumber(" + ");
       case 4:
-        return displayOperate("");
-        break;
+      default:
+        return textContentValue;
     }
-  }
-
-  switch (index) {
-    case 0:
-      return displayNumber(btn, " / ");
-    case 1:
-      return displayNumber(btn, " * ");
-    case 2:
-      return displayNumber(btn, " - ");
-    case 3:
-      return displayNumber(btn, " + ");
-    case 4:
-      return textContentValue;
   }
 }
 
