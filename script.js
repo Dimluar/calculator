@@ -79,14 +79,20 @@ function displaySymbol(btn, index) {
   const symbols = ["*", "/", "-", "+"];
   if (symbols.some((item) => textContentValue.includes(item))) {
     switch (index) {
-      case 4:
-        let [a, operator, b] = textContentValue.split(" ");
-        textContentValue = `${operate(a, b, operator)}`;
-        textField.textContent = textContentValue;
-        return textContentValue;
+      case 0:
+        return displayOperate(" / ");
         break;
-      default:
-        return textContentValue;
+      case 1:
+        return displayOperate(" * ");
+        break;
+      case 2:
+        return displayOperate(" - ");
+        break;
+      case 3:
+        return displayOperate(" + ");
+        break;
+      case 4:
+        return displayOperate("");
         break;
     }
   }
@@ -104,4 +110,11 @@ function displaySymbol(btn, index) {
       return textContentValue;
       break;
   }
+}
+
+function displayOperate(symbol) {
+  let [a, operator, b] = textContentValue.split(" ");
+  textContentValue = `${operate(a, b, operator)}${symbol}`;
+  textField.textContent = textContentValue;
+  return textContentValue;
 }
